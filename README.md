@@ -1,5 +1,13 @@
 # xendit
 
+#Installation instruction
+- git clone https://github.com/aashhissh/xendit.git
+- cd xendit
+- npm i
+- nodemon server.js (install nodemon if not installed already)
+- open localhost:8080 on browser to test micro service integration
+- use post man to test rest of the endpoints
+
 #Wallet Client
 User Api:
     Create a new user with a wallet with min balance of 1000, which can be used for testing transaction
@@ -91,3 +99,4 @@ Wallet Api:
                                 "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw2_zexzJ5D3DR3d92yulsArte6rrBIeYxZRbQkHDEd0lDo8d5Hw"
                 }
         ]
+
