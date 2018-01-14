@@ -9,7 +9,7 @@ var walletController = {};
 
 var getAmountObject = function (amount, type) {
     var amountObject = {};
-    amountObject.amount = amount;
+    amountObject.amount = Number(amount);
     amountObject.currency = "Rp";
     amountObject.amount_formatted = ((type === 'debit') ? ("-Rp " + amount) : ("Rp " + amount))
     amountObject.type = type;
@@ -46,7 +46,7 @@ walletController.getWalletDetails = function ( req, res ) {
             if(!wallet)
                 throw 'user wallet not found :(';
 
-            return res.status(200).json(getAmountObject(wallet.wallet_balance, getAmountType(wallet.wallet_balance)));
+            return res.status(200).json(getAmountObject(wallet.wallet_balance.toFixed(3), getAmountType(wallet.wallet_balance)));
         })
         .catch(function (error) {
             console.log("ERROR: ", error);
@@ -87,7 +87,7 @@ walletController.getWalletTransaction = function ( req, res ) {
                             transactionObject.display_time = getDisplayTime(transaction.created_at);
 
                             var amount = ((isCurrentUserPayer) ? (-transaction.amount) : (transaction.amount));
-                            transactionObject.transaction_amount = getAmountObject(transaction.amount, getAmountType(amount));
+                            transactionObject.transaction_amount = getAmountObject(transaction.amount.toFixed(3), getAmountType(amount));
                             transactionObject.wallet_id_of_other_user = isCurrentUserPayer ? transaction.payee_wallet_id : transaction.payer_wallet_id;
 
                             transactionsResultObject.push(transactionObject);
