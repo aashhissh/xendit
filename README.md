@@ -35,7 +35,59 @@ User Api:
         }
 
 Wallet Api:
-    Shows details of one's wallet
+    Shows details for one's wallet
+
      - Wallet Details:  // hit this api to view overall balance for the user's wallet
-            - endpoint : /api/v1/wallet/wallet_details/:user_id
-            - type: GET
+        - endpoint : /api/v1/wallet/wallet_details/:user_id
+        - type: GET
+        - response:{
+            "amount": 1112.5220000000002,
+            "currency": "Rp",
+            "amount_formatted": "Rp 1112.5220000000002",
+            "type": "credit"
+        }
+
+     - Wallet Transactions: // hit this api to view wallet transactions for user()
+        - endpoint : /api/v1/wallet/wallet_transactions/:user_id/:page_no?     // page_no default = 1 and limit = 3
+             - type: GET
+             - response:[
+                {
+                    "comment": "",
+                    "display_time": "6 hrs",
+                    "transaction_amount": {
+                    "amount": 34,
+                        "currency": "Rp",
+                        "amount_formatted": "Rp 34",
+                        "type": "credit"
+                    },
+                    "wallet_id_of_other_user": "5a5a552ac82e841454a576b0",
+                    "user_name": "Arpit Parikh",
+                    "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzjDhDJop6Ufi3RAb-O3BC9gRw194eVakfhX0oP8uQdjJFK-cn"
+                },
+                {
+                    "comment": "",
+                    "display_time": "6 hrs",
+                    "transaction_amount": {
+                        "amount": 46,
+                        "currency": "Rp",
+                        "amount_formatted": "Rp 46",
+                        "type": "credit"
+                    },
+                    "wallet_id_of_other_user": "5a5a54ecc82e841454a576ae",
+                    "user_name": "Shashwat Sahu",
+                    "profile_image": "https://i.pinimg.com/736x/7f/45/e2/7f45e257dac1edac6ebe8de08c1c3f9c--cute-disney-disney-cuties.jpg"
+                },
+                {
+                    "comment": "",
+                    "display_time": "6 hrs",
+                    "transaction_amount": {
+                        "amount": 3.22,
+                        "currency": "Rp",
+                        "amount_formatted": "-Rp 3.22",
+                        "type": "debit"
+                    },
+                    "wallet_id_of_other_user": "5a5a55d7c82e841454a576b2",
+                    "user_name": "Jyoti Mishra",
+                                "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw2_zexzJ5D3DR3d92yulsArte6rrBIeYxZRbQkHDEd0lDo8d5Hw"
+                }
+        ]
