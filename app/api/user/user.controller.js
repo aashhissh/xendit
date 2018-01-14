@@ -71,8 +71,4 @@ userController.makeTransaction = function ( req, res ) {
         })
 };
 
-userController.getAllUser = function ( req, res ) {
-    return res.status(200).json({'message': 'get all wired'});
-};
-
 module.exports = userController;

@@ -9,6 +9,4 @@ router.post( '/create', userController.createUser );
 
 router.post( '/make_transaction', userController.makeTransaction );
 
-router.get('/getall', userController.getAllUser );
-
 module.exports = router;
